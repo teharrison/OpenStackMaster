@@ -55,7 +55,7 @@ my $os_auth_url = $ENV{'OS_AUTH_URL'};
 
 my $ssh_options = "-o StrictHostKeyChecking=no"; # StrictHostKeyChecking=no because I am too lazy to check for the question.
 
-my $vm_user = 'ubuntu';
+our $vm_user = 'ubuntu';
 
 my @hobbitlist = ("Frodo","Samwise","Meriadoc","Peregrin","Gandalf","Aragorn","Legolas","Gimli","Denethor","Boromir","Faramir","Galadriel","Celeborn","Elrond","Bilbo","Theoden","Eomer","Eowyn","Treebeard");
 
@@ -125,6 +125,7 @@ our $options_specify = [	"Specify existing VMs for actions and deletion",
 
 our $options_other_opts = ["Other options",
 							"noownercheck"	=> "disables owner check",									undef,
+							"vm_user" => "username for vm login and home dir",          undef,
 							"debug"	=> "debug info",									undef
 ];
 
