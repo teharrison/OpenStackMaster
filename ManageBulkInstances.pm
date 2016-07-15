@@ -125,7 +125,7 @@ our $options_specify = [	"Specify existing VMs for actions and deletion",
 
 our $options_other_opts = ["Other options",
 							"noownercheck"	=> "disables owner check",									undef,
-							"vm_user" => "username for vm login and home dir",          undef,
+							"vm_user=s" => "username for vm login and home dir",          undef,
 							"debug"	=> "debug info",									undef
 ];
 
