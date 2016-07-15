@@ -113,9 +113,9 @@ sub thread_function {
 	}
 	
 	unless (defined $arg_hash{"vm_user"}) {
-		$arg_hash{"vm_user"} = $vm_user;
+		$arg_hash{"vm_user"} = $ManageBulkInstances::vm_user;
 	}
-	$vm_user = $arg_hash{"vm_user"};
+	$ManageBulkInstances::vm_user = $arg_hash{"vm_user"};
 	
 	my $remote = $arg_hash{"username"}."\@$ip";
 	my $remoteDataDir = "/home/".$arg_hash{"username"}."/data/";
