@@ -87,6 +87,11 @@ ManageBulkInstances::getOptionsHash(\@options_array, \%arg_hash);
 # get values from config file
 ManageBulkInstances::read_config_file(\%arg_hash, "default");
 
+unless (defined $arg_hash{"vm_user"}) {
+	$arg_hash{"vm_user"} = $ManageBulkInstances::vm_user;
+}
+$ManageBulkInstances::vm_user = $arg_hash{"vm_user"};
+
 # get values from IP file
 if (defined $arg_hash{"ipfile"}) {
 	ManageBulkInstances::read_config_file(\%arg_hash, $arg_hash{"ipfile"});
@@ -111,11 +116,6 @@ sub thread_function {
 	unless (defined $arg_hash{"username"}) {
 		$arg_hash{"username"} = "ubuntu";
 	}
-	
-	unless (defined $arg_hash{"vm_user"}) {
-		$arg_hash{"vm_user"} = $ManageBulkInstances::vm_user;
-	}
-	$ManageBulkInstances::vm_user = $arg_hash{"vm_user"};
 	
 	my $remote = $arg_hash{"username"}."\@$ip";
 	my $remoteDataDir = "/home/".$arg_hash{"username"}."/data/";
